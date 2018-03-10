@@ -32,7 +32,6 @@ public class Utils {
     public static void createObj(Class clazz) throws ClassNotFoundException, IllegalAccessException, InstantiationException {
         Class ex = clazz.forName(clazz.getName());
         Object obj = ex.newInstance();
-        //Class p = () obj;
     }
 
     public static void familyTree(Class clazz) throws NoSuchMethodException {
@@ -57,14 +56,15 @@ public class Utils {
         }
     }
 
-    public static void showMethods(Class clazz) {
+    private static void showMethods(Class clazz) {
         Method[] methods = clazz.getMethods();
         System.out.println("Class: " + clazz.getName());
         for (Method method : methods) {
             if (method.isAnnotationPresent(MyAnnotation.class)) System.out.print("* ");
-                System.out.println("Method name: " + method.getName() + "()");
-                System.out.println("Return type: " + method.getReturnType().getName());
-                System.out.println("");
+
+            System.out.println("Method name: " + method.getName() + "()");
+            System.out.println("Return type: " + method.getReturnType().getName());
+            System.out.println("");
 
         }
         System.out.println("-------------------------------");
@@ -75,11 +75,6 @@ public class Utils {
         boolean parent = false;
         if (clazz.getSuperclass() != null) parent = true;
         return parent;
-    }
-
-    public static void findAnnotation(Class clazz){
-        //System.out.println(clazz.getAnnotation(clazz.getClass()));
-        //System.out.println(clazz.isAnnotation());
     }
 }
 
