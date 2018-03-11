@@ -1,6 +1,8 @@
-package Figures;
-
-import Util.Utils;
+import Figures.Circle;
+import Figures.Shape;
+import Figures.Square;
+import Util.AnnotationWork;
+import Util.Reflect;
 
 import java.util.Arrays;
 import java.util.List;
@@ -13,15 +15,15 @@ public class Main {
         List<Shape> list = Arrays.asList(new Circle(), new Square());
         list.forEach(System.out::println);
 
-        Utils.classInfo(Circle.class);
+        Reflect.classInfo(Circle.class);
         System.out.println("--------------------------");
 
-        Utils.reflectionInfo(Shape.class);
+        Reflect.reflectionInfo(Shape.class);
         System.out.println("--------------------------");
 
-        Utils.createObj(Circle.class);
+        Reflect.createObj(Circle.class);
         System.out.println("--------------------------");
 
-        Utils.familyTree(Circle.class);
+        AnnotationWork.familyTree(Circle.class);
     }
 }

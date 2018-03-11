@@ -5,35 +5,9 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * Created by 1 on 06.03.2018.
+ * Created by 1 on 11.03.2018.
  */
-public class Utils {
-    public static void classInfo(Class clazz) {
-        StringBuilder str = new StringBuilder();
-
-        str.append("Class name: ").append(clazz.getName()).append("\n")
-                .append("Simple name: ").append(clazz.getSimpleName()).append("\n")
-                .append("Canonical name: ").append(clazz.getCanonicalName()).append("\n")
-                .append("This is interface? ").append(clazz.isInterface());
-
-        System.out.println(str);
-    }
-
-    public static void reflectionInfo(Class clazz) throws NoSuchMethodException {
-        StringBuilder str = new StringBuilder();
-
-        str.append("Methods: ").append(clazz.getMethod("toString", null)).append("\n")
-                .append("Constructor: ").append(clazz.getConstructor()).append("\n")
-                .append("Fields: ").append(clazz.getFields());
-
-        System.out.println(str);
-    }
-
-    public static void createObj(Class clazz) throws ClassNotFoundException, IllegalAccessException, InstantiationException {
-        Class ex = clazz.forName(clazz.getName());
-        Object obj = ex.newInstance();
-    }
-
+public class AnnotationWork {
     public static void familyTree(Class clazz) throws NoSuchMethodException {
         List<Class> parentList = new ArrayList<>();
         boolean next = haveParent(clazz);
@@ -65,7 +39,6 @@ public class Utils {
             System.out.println("Method name: " + method.getName() + "()");
             System.out.println("Return type: " + method.getReturnType().getName());
             System.out.println("");
-
         }
         System.out.println("-------------------------------");
         System.out.println("");
@@ -77,5 +50,3 @@ public class Utils {
         return parent;
     }
 }
-
-
