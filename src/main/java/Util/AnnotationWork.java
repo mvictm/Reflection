@@ -31,10 +31,12 @@ public class AnnotationWork {
     }
 
     private static void showMethods(Class clazz) {
-        Method[] methods = clazz.getMethods();
+        Method[] methods = clazz.getDeclaredMethods();
         System.out.println("Class: " + clazz.getName());
         for (Method method : methods) {
-            if (method.isAnnotationPresent(MyAnnotation.class)) System.out.print("* ");
+            if (method.isAnnotationPresent(MyAnnotation.class)) {
+                System.out.print("* ");
+            }
 
             System.out.println("Method name: " + method.getName() + "()");
             System.out.println("Return type: " + method.getReturnType().getName());
